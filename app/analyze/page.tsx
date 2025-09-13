@@ -13,6 +13,7 @@ import { useTranslation } from '@/hooks/useTranslation';
 
 export default function AnalyzePage() {
   const { t } = useTranslation();
+  const [mounted, setMounted] = useState(false);
   const {
     koreaIncome,
     usIncome,
@@ -25,9 +26,17 @@ export default function AnalyzePage() {
     setUsResult,
   } = useIncomeStore();
 
-  const [activeTab, setActiveTab] = useState<'korea' | 'us' | 'compare'>(selectedCountry || 'korea');
+  const [activeTab, setActiveTab] = useState<'korea' | 'us' | 'compare'>('korea');
   const [targetPercentile, setTargetPercentile] = useState(90);
   const [isCalculating, setIsCalculating] = useState(false);
+
+  // Handle hydration
+  useEffect(() => {
+    setMounted(true);
+    if (selectedCountry) {
+      setActiveTab(selectedCountry);
+    }
+  }, [selectedCountry]);
 
   // Get smart target percentile based on current position (gradual steps)
   const getSmartTargetPercentile = (currentPercentile: number) => {
@@ -84,6 +93,19 @@ export default function AnalyzePage() {
 
   const targetKorea = getIncomeForPercentile(targetPercentile, 'korea');
   const targetUS = getIncomeForPercentile(targetPercentile, 'us');
+
+  // Prevent SSR issues with Zustand
+  if (!mounted) {
+    return (
+      <div className="min-h-screen py-12 px-4 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center">
+            <div className="text-2xl font-bold text-gray-400">Loading...</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen py-12 px-4 bg-gray-50">
