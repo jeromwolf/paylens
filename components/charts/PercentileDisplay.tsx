@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react';
 import { CalculationResult } from '@/types/income';
 import { formatKRW, formatUSD } from '@/lib/utils/format';
 import { useTranslation } from '@/hooks/useTranslation';
+import PercentileGauge from './PercentileGauge';
+import PercentileBar from './PercentileBar';
 
 interface PercentileDisplayProps {
   result: CalculationResult;
@@ -87,11 +89,11 @@ export default function PercentileDisplay({ result }: PercentileDisplayProps) {
             </div>
           </div>
 
-          {/* Percentile Display */}
+          {/* Percentile Display with Gauge */}
           <div className="text-center mb-10">
-            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-blue-200">
-              <div className="text-8xl md:text-9xl font-black text-gray-900 mb-4">
-                {t('higherThan')} {animatedHigherThan.toFixed(1)}%
+            <div className="bg-gradient-to-br from-blue-50 via-white to-purple-50 rounded-2xl p-8 shadow-lg border-2 border-blue-200">
+              <div className="flex flex-col items-center mb-6">
+                <PercentileGauge result={result} />
               </div>
               <div className="text-xl md:text-2xl text-gray-700 font-bold">
                 {result.label}
@@ -108,6 +110,11 @@ export default function PercentileDisplay({ result }: PercentileDisplayProps) {
             </div>
           </div>
 
+          {/* Percentile Bar */}
+          <div className="mb-8 bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-6">
+            <h4 className="text-sm font-black text-gray-700 mb-4 text-center">퍼센타일 위치</h4>
+            <PercentileBar result={result} />
+          </div>
 
           {/* Statistics Grid */}
           <div className="grid grid-cols-3 gap-4 mb-8">
