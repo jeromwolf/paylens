@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "source": "국세청 근로소득 백분위 자료",
+    "year": 2024,
+    "lastUpdated": "2024-12-31",
+    "currency": "KRW",
+    "unit": "만원",
+    "description": "대한민국 근로소득자 백분위별 연간 총급여액"
+  },
+  "percentiles": [
+    { "percentile": 1, "income": 240, "label": "하위 1%" },
+    { "percentile": 5, "income": 600, "label": "하위 5%" },
+    { "percentile": 10, "income": 960, "label": "하위 10%" },
+    { "percentile": 15, "income": 1320, "label": "하위 15%" },
+    { "percentile": 20, "income": 1680, "label": "하위 20%" },
+    { "percentile": 25, "income": 2040, "label": "하위 25%" },
+    { "percentile": 30, "income": 2400, "label": "하위 30%" },
+    { "percentile": 35, "income": 2760, "label": "하위 35%" },
+    { "percentile": 40, "income": 3120, "label": "하위 40%" },
+    { "percentile": 45, "income": 3480, "label": "하위 45%" },
+    { "percentile": 50, "income": 3840, "label": "중위값" },
+    { "percentile": 55, "income": 4200, "label": "상위 45%" },
+    { "percentile": 60, "income": 4600, "label": "상위 40%" },
+    { "percentile": 65, "income": 5040, "label": "상위 35%" },
+    { "percentile": 70, "income": 5520, "label": "상위 30%" },
+    { "percentile": 75, "income": 6120, "label": "상위 25%" },
+    { "percentile": 80, "income": 6840, "label": "상위 20%" },
+    { "percentile": 85, "income": 7800, "label": "상위 15%" },
+    { "percentile": 90, "income": 9240, "label": "상위 10%" },
+    { "percentile": 91, "income": 9600, "label": "상위 9%" },
+    { "percentile": 92, "income": 10020, "label": "상위 8%" },
+    { "percentile": 93, "income": 10500, "label": "상위 7%" },
+    { "percentile": 94, "income": 11100, "label": "상위 6%" },
+    { "percentile": 95, "income": 11820, "label": "상위 5%" },
+    { "percentile": 96, "income": 12720, "label": "상위 4%" },
+    { "percentile": 97, "income": 13920, "label": "상위 3%" },
+    { "percentile": 98, "income": 15600, "label": "상위 2%" },
+    { "percentile": 99, "income": 18600, "label": "상위 1%" },
+    { "percentile": 99.1, "income": 19200, "label": "상위 0.9%" },
+    { "percentile": 99.2, "income": 19920, "label": "상위 0.8%" },
+    { "percentile": 99.3, "income": 20760, "label": "상위 0.7%" },
+    { "percentile": 99.4, "income": 21720, "label": "상위 0.6%" },
+    { "percentile": 99.5, "income": 22920, "label": "상위 0.5%" },
+    { "percentile": 99.6, "income": 24480, "label": "상위 0.4%" },
+    { "percentile": 99.7, "income": 26520, "label": "상위 0.3%" },
+    { "percentile": 99.8, "income": 29400, "label": "상위 0.2%" },
+    { "percentile": 99.9, "income": 36000, "label": "상위 0.1%" },
+    { "percentile": 100, "income": 1000000, "label": "최상위" }
+  ],
+  "statistics": {
+    "totalWorkers": 20840000,
+    "averageIncome": 4680,
+    "medianIncome": 3840,
+    "giniCoefficient": 0.345
+  },
+  "incomeGroups": {
+    "low": { "range": [0, 2400], "label": "저소득층", "percentage": 30 },
+    "lowMiddle": { "range": [2400, 4800], "label": "중하위층", "percentage": 30 },
+    "middle": { "range": [4800, 7200], "label": "중산층", "percentage": 25 },
+    "upperMiddle": { "range": [7200, 12000], "label": "중상위층", "percentage": 10 },
+    "high": { "range": [12000, null], "label": "고소득층", "percentage": 5 }
+  }
+}

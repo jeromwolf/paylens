@@ -12,15 +12,34 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Force light mode - remove dark mode */
+body {
+  background: #ffffff !important;
+  color: #171717 !important;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Override any text colors to ensure visibility */
+* {
+  color: inherit;
+}
+
+/* Ensure all text is dark except white text */
+.text-gray-500,
+.text-gray-400,
+.text-gray-300 {
+  color: #374151 !important;
+}
+
+.text-gray-600 {
+  color: #1f2937 !important;
+}
+
+.text-gray-700 {
+  color: #111827 !important;
+}
+
+/* Keep white text white */
+.text-white {
+  color: #ffffff !important;
 }

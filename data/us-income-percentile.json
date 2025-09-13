@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "source": "US Census Bureau - Current Population Survey",
+    "year": 2024,
+    "lastUpdated": "2024-09-15",
+    "currency": "USD",
+    "unit": "dollars",
+    "description": "United States individual income percentiles"
+  },
+  "percentiles": [
+    { "percentile": 1, "income": 2000, "label": "Bottom 1%" },
+    { "percentile": 5, "income": 7500, "label": "Bottom 5%" },
+    { "percentile": 10, "income": 12000, "label": "Bottom 10%" },
+    { "percentile": 15, "income": 16500, "label": "Bottom 15%" },
+    { "percentile": 20, "income": 21000, "label": "Bottom 20%" },
+    { "percentile": 25, "income": 25500, "label": "Bottom 25%" },
+    { "percentile": 30, "income": 30000, "label": "Bottom 30%" },
+    { "percentile": 35, "income": 34500, "label": "Bottom 35%" },
+    { "percentile": 40, "income": 39000, "label": "Bottom 40%" },
+    { "percentile": 45, "income": 44500, "label": "Bottom 45%" },
+    { "percentile": 50, "income": 50200, "label": "Median" },
+    { "percentile": 55, "income": 56000, "label": "Top 45%" },
+    { "percentile": 60, "income": 62500, "label": "Top 40%" },
+    { "percentile": 65, "income": 70000, "label": "Top 35%" },
+    { "percentile": 70, "income": 78500, "label": "Top 30%" },
+    { "percentile": 75, "income": 88500, "label": "Top 25%" },
+    { "percentile": 80, "income": 101000, "label": "Top 20%" },
+    { "percentile": 85, "income": 118000, "label": "Top 15%" },
+    { "percentile": 90, "income": 150000, "label": "Top 10%" },
+    { "percentile": 91, "income": 158000, "label": "Top 9%" },
+    { "percentile": 92, "income": 167000, "label": "Top 8%" },
+    { "percentile": 93, "income": 177000, "label": "Top 7%" },
+    { "percentile": 94, "income": 189000, "label": "Top 6%" },
+    { "percentile": 95, "income": 201050, "label": "Top 5%" },
+    { "percentile": 96, "income": 220000, "label": "Top 4%" },
+    { "percentile": 97, "income": 245000, "label": "Top 3%" },
+    { "percentile": 98, "income": 285000, "label": "Top 2%" },
+    { "percentile": 99, "income": 430000, "label": "Top 1%" },
+    { "percentile": 99.1, "income": 455000, "label": "Top 0.9%" },
+    { "percentile": 99.2, "income": 485000, "label": "Top 0.8%" },
+    { "percentile": 99.3, "income": 520000, "label": "Top 0.7%" },
+    { "percentile": 99.4, "income": 565000, "label": "Top 0.6%" },
+    { "percentile": 99.5, "income": 620000, "label": "Top 0.5%" },
+    { "percentile": 99.6, "income": 695000, "label": "Top 0.4%" },
+    { "percentile": 99.7, "income": 805000, "label": "Top 0.3%" },
+    { "percentile": 99.8, "income": 985000, "label": "Top 0.2%" },
+    { "percentile": 99.9, "income": 1500000, "label": "Top 0.1%" },
+    { "percentile": 100, "income": 100000000, "label": "Maximum" }
+  ],
+  "statistics": {
+    "totalWorkers": 181000000,
+    "averageIncome": 73472,
+    "medianIncome": 50200,
+    "giniCoefficient": 0.485
+  },
+  "incomeGroups": {
+    "poor": { "range": [0, 15000], "label": "Below Poverty Line", "percentage": 11.5 },
+    "lowerClass": { "range": [15000, 35000], "label": "Lower Class", "percentage": 25 },
+    "lowerMiddle": { "range": [35000, 55000], "label": "Lower Middle Class", "percentage": 20 },
+    "middleClass": { "range": [55000, 90000], "label": "Middle Class", "percentage": 20 },
+    "upperMiddle": { "range": [90000, 150000], "label": "Upper Middle Class", "percentage": 13.5 },
+    "upperClass": { "range": [150000, null], "label": "Upper Class", "percentage": 10 }
+  },
+  "householdPercentiles": {
+    "p50": 80020,
+    "p75": 145460,
+    "p90": 234769,
+    "p95": 315504,
+    "p99": 631500
+  }
+}
