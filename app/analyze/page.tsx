@@ -122,19 +122,36 @@ export default function AnalyzePage() {
         {/* Tab Navigation */}
         <div className="flex justify-center mb-8">
           <div className="bg-white rounded-xl shadow-lg p-1 inline-flex">
-            {['korea', 'us', 'compare'].map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab as any)}
-                className={`px-6 py-3 rounded-lg font-bold transition-all ${
-                  activeTab === tab
-                    ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-md'
-                    : 'text-gray-600 hover:text-gray-800 hover:bg-gray-50'
-                }`}
-              >
-                {t(`${tab}Tab` as any)}
-              </button>
-            ))}
+            <button
+              onClick={() => setActiveTab('korea')}
+              className={`px-6 py-3 rounded-lg font-bold transition-all ${
+                activeTab === 'korea'
+                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md'
+                  : 'text-gray-600 hover:text-gray-800 hover:bg-gray-50'
+              }`}
+            >
+              한국
+            </button>
+            <button
+              onClick={() => setActiveTab('us')}
+              className={`px-6 py-3 rounded-lg font-bold transition-all ${
+                activeTab === 'us'
+                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md'
+                  : 'text-gray-600 hover:text-gray-800 hover:bg-gray-50'
+              }`}
+            >
+              미국
+            </button>
+            <button
+              onClick={() => setActiveTab('compare')}
+              className={`px-6 py-3 rounded-lg font-bold transition-all ${
+                activeTab === 'compare'
+                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md'
+                  : 'text-gray-600 hover:text-gray-800 hover:bg-gray-50'
+              }`}
+            >
+              비교
+            </button>
           </div>
         </div>
 
