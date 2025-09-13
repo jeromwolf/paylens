@@ -7,11 +7,11 @@
 ## 📸 스크린샷
 
 ### 연봉 입력 화면
-![PayLens Input](https://github.com/jeromwolf/paylens/assets/YOUR_ID/screenshot1.png)
+![PayLens Input](docs/screenshots/screenshot1.png)
 *한국/미국 선택 후 연봉을 입력하면 즉시 퍼센타일을 확인할 수 있습니다*
 
 ### 분석 결과 화면
-![PayLens Result](https://github.com/jeromwolf/paylens/assets/YOUR_ID/screenshot2.png)
+![PayLens Result](docs/screenshots/screenshot2.png)
 *상위 퍼센타일, 소득 그룹, 목표 설정 등 상세한 분석 정보를 제공합니다*
 
 ## 🎯 주요 기능
