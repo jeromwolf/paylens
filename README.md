@@ -91,7 +91,7 @@ PayLens는 한국과 미국의 **공식 정부 통계**를 기반으로 연봉 �
 
 메인 페이지에서 분석하고 싶은 국가를 선택하고 연봉을 입력하세요.
 
-<img src="https://via.placeholder.com/800x400/f3f4f6/374151?text=Step+1%3A+%EA%B5%AD%EA%B0%80+%EC%84%A0%ED%83%9D+%EB%B0%8F+%EC%97%B0%EB%B4%89+%EC%9E%85%EB%A0%A5" alt="Step 1 Screenshot" width="100%" />
+![Step 1: 국가 선택 및 연봉 입력](docs/screenshots/step1-salary-input.png)
 
 **주요 기능:**
 - 🇰🇷 한국 / 🇺🇸 미국 선택
@@ -105,7 +105,7 @@ PayLens는 한국과 미국의 **공식 정부 통계**를 기반으로 연봉 �
 
 입력한 연봉이 상위 몇 %에 해당하는지 **실시간으로** 확인할 수 있습니다.
 
-<img src="https://via.placeholder.com/800x400/dbeafe/1e40af?text=Step+2%3A+%ED%8D%BC%EC%84%BC%ED%83%80%EC%9D%BC+%ED%99%95%EC%9D%B8" alt="Step 2 Screenshot" width="100%" />
+![Step 2: 퍼센타일 확인](docs/screenshots/step2-percentile-result.png)
 
 **표시 정보:**
 - 🏆 **상위 퍼센타일** (대형 표시)
@@ -120,7 +120,7 @@ PayLens는 한국과 미국의 **공식 정부 통계**를 기반으로 연봉 �
 
 상세한 분석 결과와 함께 **스마트한 목표**를 설정하고 달성 방법을 확인하세요.
 
-<img src="https://via.placeholder.com/800x400/f0fdf4/16a34a?text=Step+3%3A+%EC%83%81%EC%84%B8+%EB%B6%84%EC%84%9D+%EB%B0%8F+%EB%AA%A9%ED%91%9C+%EC%84%A4%EC%A0%95" alt="Step 3 Screenshot" width="100%" />
+![Step 3: 상세 분석 및 목표 설정](docs/screenshots/step3-goal-setting.png)
 
 **상세 기능:**
 - 🎯 **AI 추천 목표**: 현실적이고 달성 가능한 다음 단계 제안
