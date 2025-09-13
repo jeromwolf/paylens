@@ -128,8 +128,8 @@ export default function AnalyzePage() {
                 onClick={() => setActiveTab(tab as any)}
                 className={`px-6 py-3 rounded-lg font-bold transition-all ${
                   activeTab === tab
-                    ? 'bg-gradient-to-r from-primary-500 to-secondary-500 text-white shadow-md'
-                    : 'text-gray-600 hover:text-gray-800'
+                    ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-md'
+                    : 'text-gray-600 hover:text-gray-800 hover:bg-gray-50'
                 }`}
               >
                 {t(`${tab}Tab` as any)}
