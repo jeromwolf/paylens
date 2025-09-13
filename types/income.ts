@@ -5,7 +5,7 @@ export interface PercentileData {
 }
 
 export interface IncomeGroup {
-  range: [number, number | null];
+  range: number[];
   label: string;
   percentage: number;
 }

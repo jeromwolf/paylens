@@ -3,9 +3,27 @@
 import { useEffect, useState } from 'react';
 import { validateDataIntegrity, testSampleCalculations } from '@/lib/data/validate';
 
+interface ValidationResult {
+  isValid: boolean;
+  errors: string[];
+}
+
+interface TestResult {
+  passed: boolean;
+  calculatedPercentile: number;
+  expectedRange: number[];
+  country: string;
+  income: number;
+}
+
+interface SampleTestResults {
+  passed: boolean;
+  results: TestResult[];
+}
+
 export default function TestDataPage() {
-  const [validation, setValidation] = useState<any>(null);
-  const [sampleTests, setSampleTests] = useState<any>(null);
+  const [validation, setValidation] = useState<ValidationResult | null>(null);
+  const [sampleTests, setSampleTests] = useState<SampleTestResults | null>(null);
 
   useEffect(() => {
     // 데이터 무결성 검증
@@ -58,7 +76,7 @@ export default function TestDataPage() {
                 상태: {sampleTests.passed ? '✅ 모든 테스트 통과' : '❌ 일부 테스트 실패'}
               </div>
               <div className="space-y-3">
-                {sampleTests.results.map((test: any, i: number) => (
+                {sampleTests.results.map((test: TestResult, i: number) => (
                   <div key={i} className={`border rounded p-3 ${test.passed ? 'border-green-300 bg-green-50' : 'border-red-300 bg-red-50'}`}>
                     <div className="flex justify-between items-start">
                       <div>

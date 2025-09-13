@@ -44,7 +44,6 @@ export const translations = {
     annualSalaryUS: 'Annual Salary (Pre-tax)',
     koreanWon: '만원',
     usDollar: 'USD',
-    analyze: '분석하기',
 
     // Salary suggestions
     newGradAvg: '신입 평균',
@@ -192,7 +191,6 @@ export const translations = {
     annualSalaryUS: 'Annual Salary (Pre-tax)',
     koreanWon: 'KRW',
     usDollar: 'USD',
-    analyze: 'Analyze',
 
     // Salary suggestions
     newGradAvg: 'New Grad Avg',

@@ -70,7 +70,15 @@ export function validateDataIntegrity(): { isValid: boolean; errors: string[] } 
 }
 
 // 샘플 테스트
-export function testSampleCalculations(): { passed: boolean; results: any[] } {
+interface TestResult {
+  passed: boolean;
+  calculatedPercentile: number;
+  expectedRange: number[];
+  country: string;
+  income: number;
+}
+
+export function testSampleCalculations(): { passed: boolean; results: TestResult[] } {
   const testCases = [
     { country: 'korea', income: 3000, expectedRange: [35, 45] }, // 3000만원
     { country: 'korea', income: 5000, expectedRange: [60, 70] }, // 5000만원

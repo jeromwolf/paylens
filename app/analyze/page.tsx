@@ -6,7 +6,7 @@ import SalaryInput from '@/components/forms/SalaryInput';
 import PercentileDisplay from '@/components/charts/PercentileDisplay';
 import PercentileChart from '@/components/charts/PercentileChart';
 import useIncomeStore from '@/store/useIncomeStore';
-import { calculatePercentile, compareIncome, getIncomeForPercentile } from '@/lib/calculations/percentile';
+import { calculatePercentile, getIncomeForPercentile } from '@/lib/calculations/percentile';
 import { formatKRW, formatUSD } from '@/lib/utils/format';
 import { convertCurrency } from '@/lib/utils/currency';
 import { useTranslation } from '@/hooks/useTranslation';
@@ -21,7 +21,6 @@ export default function AnalyzePage() {
     usResult,
     setKoreaIncome,
     setUsIncome,
-    setSelectedCountry,
     setKoreaResult,
     setUsResult,
   } = useIncomeStore();

@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import { calculatePercentile, getIncomeForPercentile, compareIncome } from '@/lib/calculations/percentile';
-import { formatKRW, formatUSD, formatPercent, formatPercentileLabel } from '@/lib/utils/format';
-import { convertCurrency, getExchangeRateInfo } from '@/lib/utils/currency';
+import { formatKRW, formatUSD, formatPercent } from '@/lib/utils/format';
+import { getExchangeRateInfo } from '@/lib/utils/currency';
 
 export default function TestCalculationPage() {
   const [koreaIncome, setKoreaIncome] = useState<number>(5000);

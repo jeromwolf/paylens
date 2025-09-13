@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { CalculationResult } from '@/types/income';
-import { formatKRW, formatUSD, formatPercent } from '@/lib/utils/format';
+import { formatKRW, formatUSD } from '@/lib/utils/format';
 import { useTranslation } from '@/hooks/useTranslation';
 
 interface PercentileDisplayProps {

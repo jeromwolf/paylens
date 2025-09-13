@@ -83,7 +83,7 @@ export function formatRelativePosition(
   country: 'korea' | 'us'
 ): string {
   const higherThan = Math.round(100 - percentile);
-  const lowerThan = Math.round(percentile);
+  // const lowerThan = Math.round(percentile);
 
   if (country === 'korea') {
     if (percentile >= 99) return '최상위 1% 이내';

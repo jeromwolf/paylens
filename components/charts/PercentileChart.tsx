@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import React from 'react';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, PointElement, LineElement } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import { motion } from 'framer-motion';
@@ -96,7 +96,7 @@ export default function PercentileChart({ country, currentIncome, currentPercent
       },
       tooltip: {
         callbacks: {
-          label: function(context: any) {
+          label: function(context: { dataset: { label?: string }, parsed: { y: number } }) {
             const label = context.dataset.label || '';
             const value = context.parsed.y;
             if (isKorea) {
@@ -127,20 +127,21 @@ export default function PercentileChart({ country, currentIncome, currentPercent
           font: {
             size: 11,
           },
-          callback: function(value: any) {
+          callback: function(value: string | number) {
+            const numValue = typeof value === 'string' ? parseFloat(value) : value;
             if (isKorea) {
-              if (value >= 10000) {
-                return `${(value / 10000).toFixed(1)}억`;
+              if (numValue >= 10000) {
+                return `${(numValue / 10000).toFixed(1)}억`;
               }
-              return `${value.toLocaleString()}만`;
+              return `${numValue.toLocaleString()}만`;
             }
-            if (value >= 1000000) {
-              return `$${(value / 1000000).toFixed(1)}M`;
+            if (numValue >= 1000000) {
+              return `$${(numValue / 1000000).toFixed(1)}M`;
             }
-            if (value >= 1000) {
-              return `$${(value / 1000)}K`;
+            if (numValue >= 1000) {
+              return `$${(numValue / 1000).toFixed(1)}K`;
             }
-            return `$${value}`;
+            return `$${numValue}`;
           },
         },
       },
@@ -155,7 +156,7 @@ export default function PercentileChart({ country, currentIncome, currentPercent
       className="w-full bg-white rounded-2xl shadow-xl p-6"
     >
       <div className="h-80">
-        <Bar data={chartConfig} options={options} />
+        <Bar data={chartConfig as any} options={options} />
       </div>
 
       {/* Income Ranking Table */}

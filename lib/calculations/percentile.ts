@@ -39,9 +39,9 @@ function interpolatePercentile(income: number, data: IncomeDataset): number {
  * 소득 그룹 찾기
  */
 function findIncomeGroup(income: number, data: IncomeDataset): string {
-  for (const [key, group] of Object.entries(data.incomeGroups)) {
+  for (const [, group] of Object.entries(data.incomeGroups)) {
     const [min, max] = group.range;
-    if (income >= min && (max === null || income < max)) {
+    if (income >= min && (max === null || max === undefined || income < max)) {
       return group.label;
     }
   }
