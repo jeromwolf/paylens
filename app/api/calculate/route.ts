@@ -5,7 +5,7 @@ import { convertCurrency } from '@/lib/utils/currency';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { income, country, action, targetPercentile, fromCountry, toCountry } = body;
+    const { income, country, action = 'calculate', targetPercentile, fromCountry, toCountry } = body;
 
     // Validate input
     if (!income || income <= 0) {
@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Handle different actions
+    // Handle different actions (default to 'calculate' if not specified)
     switch (action) {
       case 'calculate':
         // Calculate percentile for given income
