@@ -72,18 +72,25 @@ export default function KakaoShare({
 
     try {
       window.Kakao.Share.sendDefault({
-        objectType: 'feed',
-        content: {
-          title: shareTitle,
-          description: shareDescription,
-          imageUrl: imageUrl || 'https://paylens-kappa.vercel.app/icon?size=64',
-          imageWidth: 60,
-          imageHeight: 60,
-          link: {
-            mobileWebUrl: window.location.href,
-            webUrl: window.location.href,
-          },
+        objectType: 'list',
+        headerTitle: shareTitle,
+        headerLink: {
+          mobileWebUrl: window.location.href,
+          webUrl: window.location.href,
         },
+        contents: [
+          {
+            title: shareTitle,
+            description: shareDescription,
+            imageUrl: imageUrl || 'https://paylens-kappa.vercel.app/icon?size=64',
+            imageWidth: 60,
+            imageHeight: 60,
+            link: {
+              mobileWebUrl: window.location.href,
+              webUrl: window.location.href,
+            },
+          }
+        ],
         buttons: [
           {
             title: buttonLink ? '내 자산 순위 확인하기' : '내 연봉 순위 확인하기',
