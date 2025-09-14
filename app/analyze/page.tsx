@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import SalaryInput from '@/components/forms/SalaryInput';
 import PercentileDisplay from '@/components/charts/PercentileDisplay';
 import useIncomeStore from '@/store/useIncomeStore';
+import ShareImageGenerator from '@/components/share/ShareImageGenerator';
+import SalaryShareCard from '@/components/share/SalaryShareCard';
 import { calculatePercentile, getIncomeForPercentile } from '@/lib/calculations/percentile';
 import { formatKRW, formatUSD } from '@/lib/utils/format';
 import { convertCurrency } from '@/lib/utils/currency';
@@ -412,6 +414,59 @@ export default function AnalyzePage() {
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* 공유 기능 - 결과가 있을 때만 표시 */}
+        {(koreaResult || usResult) && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            className="mt-12 bg-gradient-to-r from-indigo-600/10 to-purple-600/10 backdrop-blur-md rounded-2xl p-8 border border-indigo-400/20 text-center"
+          >
+            <h3 className="text-2xl font-bold text-gray-900 mb-3">🎉 연봉 분석 결과를 공유해보세요!</h3>
+            <p className="text-gray-600 mb-6">
+              나의 연봉 순위를 SNS에 자랑하고 친구들과 비교해보세요
+            </p>
+
+            <div className="space-y-4">
+              {/* 한국 결과 공유 */}
+              {koreaResult && (
+                <div>
+                  <p className="text-sm font-medium text-gray-700 mb-3">🇰🇷 한국 연봉 분석 결과 공유</p>
+                  <ShareImageGenerator
+                    filename={`paylens-korea-salary-${Date.now()}`}
+                  >
+                    <SalaryShareCard
+                      salary={koreaIncome}
+                      country="KR"
+                      percentile={koreaResult.percentile}
+                      rank={koreaResult.rank}
+                      totalPeople={52000000}
+                    />
+                  </ShareImageGenerator>
+                </div>
+              )}
+
+              {/* 미국 결과 공유 */}
+              {usResult && (
+                <div className={koreaResult ? "border-t border-gray-200 pt-6" : ""}>
+                  <p className="text-sm font-medium text-gray-700 mb-3">🇺🇸 미국 연봉 분석 결과 공유</p>
+                  <ShareImageGenerator
+                    filename={`paylens-us-salary-${Date.now()}`}
+                  >
+                    <SalaryShareCard
+                      salary={usIncome}
+                      country="US"
+                      percentile={usResult.percentile}
+                      rank={usResult.rank}
+                      totalPeople={330000000}
+                    />
+                  </ShareImageGenerator>
+                </div>
+              )}
+            </div>
+          </motion.div>
+        )}
 
         {/* Data Credibility Section */}
         <motion.div

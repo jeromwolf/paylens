@@ -8,6 +8,8 @@ import WealthInput from '@/components/forms/WealthInput';
 import WealthPercentileDisplay from '@/components/charts/WealthPercentileDisplay';
 import WealthDistributionChart from '@/components/charts/WealthDistributionChart';
 import RegionalComparison from '@/components/charts/RegionalComparison';
+import ShareImageGenerator from '@/components/share/ShareImageGenerator';
+import WealthShareCard from '@/components/share/WealthShareCard';
 
 export default function WealthRankingPage() {
   const [mounted, setMounted] = useState(false);
@@ -17,6 +19,7 @@ export default function WealthRankingPage() {
   const [isCalculating, setIsCalculating] = useState(false);
   const [wealthData, setWealthData] = useState<any>(null);
   const [isLoadingWealthData, setIsLoadingWealthData] = useState(true);
+  const [exchangeRate, setExchangeRate] = useState(1350);
 
   useEffect(() => {
     setMounted(true);
@@ -87,18 +90,19 @@ export default function WealthRankingPage() {
     setCurrency(selectedCurrency);
 
     // Get current exchange rate and convert to USD if needed
-    let exchangeRate = 1350; // 기본값
+    let currentExchangeRate = 1350; // 기본값
     try {
       const response = await fetch('/api/exchange-rate');
       const data = await response.json();
       if (data.rate) {
-        exchangeRate = data.rate;
+        currentExchangeRate = data.rate;
+        setExchangeRate(currentExchangeRate);
       }
     } catch (error) {
       console.error('Failed to fetch exchange rate:', error);
     }
 
-    const wealthInUSD = selectedCurrency === 'KRW' ? wealthValue / exchangeRate : wealthValue;
+    const wealthInUSD = selectedCurrency === 'KRW' ? wealthValue / currentExchangeRate : wealthValue;
 
     // Simulate calculation delay for effect
     setTimeout(() => {
@@ -231,11 +235,35 @@ export default function WealthRankingPage() {
               </div>
             </motion.div>
 
-            {/* Info Box */}
+            {/* 공유 기능 */}
             <motion.div
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.8 }}
+              className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 backdrop-blur-md rounded-2xl p-8 border border-purple-400/20 text-center"
+            >
+              <h3 className="text-xl font-bold text-white mb-3">🎉 결과를 친구들과 공유해보세요!</h3>
+              <p className="text-white/70 mb-6">
+                나의 글로벌 자산 순위를 SNS에 자랑하고 친구들도 도전하게 해보세요
+              </p>
+
+              <ShareImageGenerator
+                filename={`paylens-wealth-rank-${Date.now()}`}
+              >
+                <WealthShareCard
+                  percentile={percentile}
+                  wealth={wealth}
+                  currency={currency}
+                  exchangeRate={exchangeRate}
+                />
+              </ShareImageGenerator>
+            </motion.div>
+
+            {/* Info Box */}
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 1.0 }}
               className="bg-blue-600/10 backdrop-blur-md rounded-2xl p-6 border border-blue-400/20"
             >
               <div className="flex gap-3">
