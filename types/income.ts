@@ -41,6 +41,7 @@ export interface CalculationResult {
   label: string;
   higherThan: number; // 상위 몇 %
   lowerThan: number; // 하위 몇 %
+  rank: number; // 예상 순위
   incomeGroup: string;
   statistics: {
     average: number;

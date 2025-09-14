@@ -64,6 +64,10 @@ export function calculateKoreaPercentile(income: number): CalculationResult {
   if (percentile === 50) label = '정확히 중위값';
   else if (percentile < 50) label = `하위 ${percentile.toFixed(1)}%`;
 
+  // 예상 순위 계산 (한국 전체 인구 약 5200만명 기준)
+  const totalPopulation = 52000000;
+  const rank = Math.round((higherThan / 100) * totalPopulation);
+
   return {
     country: 'korea',
     income: incomeInManwon,
@@ -71,6 +75,7 @@ export function calculateKoreaPercentile(income: number): CalculationResult {
     label,
     higherThan,
     lowerThan,
+    rank,
     incomeGroup: findIncomeGroup(incomeInManwon, data),
     statistics: {
       average: data.statistics.averageIncome,
@@ -95,6 +100,10 @@ export function calculateUSPercentile(income: number): CalculationResult {
   if (percentile === 50) label = 'Exactly Median';
   else if (percentile < 50) label = `Bottom ${percentile.toFixed(1)}%`;
 
+  // 예상 순위 계산 (미국 전체 인구 약 3.3억명 기준)
+  const totalPopulation = 330000000;
+  const rank = Math.round((higherThan / 100) * totalPopulation);
+
   return {
     country: 'us',
     income,
@@ -102,6 +111,7 @@ export function calculateUSPercentile(income: number): CalculationResult {
     label,
     higherThan,
     lowerThan,
+    rank,
     incomeGroup: findIncomeGroup(income, data),
     statistics: {
       average: data.statistics.averageIncome,

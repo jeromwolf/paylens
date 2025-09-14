@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import Script from "next/script";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -30,6 +31,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
+      <head>
+        <Script
+          src="https://developers.kakao.com/sdk/js/kakao.js"
+          strategy="beforeInteractive"
+        />
+      </head>
       <body className={`${inter.variable} font-sans antialiased bg-white`}>
         <Header />
         <main className="min-h-screen pt-16">

@@ -7,6 +7,7 @@ import PercentileDisplay from '@/components/charts/PercentileDisplay';
 import useIncomeStore from '@/store/useIncomeStore';
 import ShareImageGenerator from '@/components/share/ShareImageGenerator';
 import SalaryShareCard from '@/components/share/SalaryShareCard';
+import KakaoShare from '@/components/share/KakaoShare';
 import { calculatePercentile, getIncomeForPercentile } from '@/lib/calculations/percentile';
 import { formatKRW, formatUSD } from '@/lib/utils/format';
 import { convertCurrency } from '@/lib/utils/currency';
@@ -433,17 +434,26 @@ export default function AnalyzePage() {
               {koreaResult && (
                 <div>
                   <p className="text-sm font-medium text-gray-700 mb-3">🇰🇷 한국 연봉 분석 결과 공유</p>
-                  <ShareImageGenerator
-                    filename={`paylens-korea-salary-${Date.now()}`}
-                  >
-                    <SalaryShareCard
-                      salary={koreaIncome}
-                      country="KR"
+                  <div className="flex flex-wrap gap-3 justify-center">
+                    <KakaoShare
+                      title="PayLens 연봉 분석"
+                      description="내 연봉 순위를 확인해보세요!"
+                      income={koreaIncome}
                       percentile={koreaResult.percentile}
-                      rank={koreaResult.rank}
-                      totalPeople={52000000}
+                      country="KR"
                     />
-                  </ShareImageGenerator>
+                    <ShareImageGenerator
+                      filename={`paylens-korea-salary-${Date.now()}`}
+                    >
+                      <SalaryShareCard
+                        salary={koreaIncome}
+                        country="KR"
+                        percentile={koreaResult.percentile}
+                        rank={koreaResult.rank}
+                        totalPeople={52000000}
+                      />
+                    </ShareImageGenerator>
+                  </div>
                 </div>
               )}
 
@@ -451,17 +461,26 @@ export default function AnalyzePage() {
               {usResult && (
                 <div className={koreaResult ? "border-t border-gray-200 pt-6" : ""}>
                   <p className="text-sm font-medium text-gray-700 mb-3">🇺🇸 미국 연봉 분석 결과 공유</p>
-                  <ShareImageGenerator
-                    filename={`paylens-us-salary-${Date.now()}`}
-                  >
-                    <SalaryShareCard
-                      salary={usIncome}
-                      country="US"
+                  <div className="flex flex-wrap gap-3 justify-center">
+                    <KakaoShare
+                      title="PayLens 연봉 분석"
+                      description="내 연봉 순위를 확인해보세요!"
+                      income={usIncome}
                       percentile={usResult.percentile}
-                      rank={usResult.rank}
-                      totalPeople={330000000}
+                      country="US"
                     />
-                  </ShareImageGenerator>
+                    <ShareImageGenerator
+                      filename={`paylens-us-salary-${Date.now()}`}
+                    >
+                      <SalaryShareCard
+                        salary={usIncome}
+                        country="US"
+                        percentile={usResult.percentile}
+                        rank={usResult.rank}
+                        totalPeople={330000000}
+                      />
+                    </ShareImageGenerator>
+                  </div>
                 </div>
               )}
             </div>
