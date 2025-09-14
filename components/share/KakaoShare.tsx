@@ -72,11 +72,17 @@ export default function KakaoShare({
 
     try {
       window.Kakao.Share.sendDefault({
-        objectType: 'text',
-        text: shareTitle,
-        link: {
-          mobileWebUrl: window.location.href,
-          webUrl: window.location.href,
+        objectType: 'feed',
+        content: {
+          title: shareTitle,
+          description: shareDescription,
+          imageUrl: imageUrl || 'https://paylens-kappa.vercel.app/icon?size=256',
+          imageWidth: 256,
+          imageHeight: 256,
+          link: {
+            mobileWebUrl: window.location.href,
+            webUrl: window.location.href,
+          },
         },
         buttons: [
           {

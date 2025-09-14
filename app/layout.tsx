@@ -19,8 +19,16 @@ export const metadata: Metadata = {
     description: "연봉만 입력하면 바로 알 수 있는 내 소득 순위",
     type: "website",
     locale: "ko_KR",
-    url: "https://paylens.com",
+    url: "https://paylens-kappa.vercel.app",
     siteName: "PayLens",
+    images: [
+      {
+        url: "https://paylens-kappa.vercel.app/icon?size=512",
+        width: 512,
+        height: 512,
+        alt: "PayLens 아이콘",
+      }
+    ],
   },
 };
 
