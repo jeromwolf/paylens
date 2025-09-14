@@ -1,0 +1,77 @@
+{
+  "source": "World Bank",
+  "lastUpdated": "2025-09-14T02:19:18.026Z",
+  "note": "World Bank GNI per capita 기반 글로벌 자산 분포 추정",
+  "globalWealthPercentiles": [
+    {
+      "percentile": 99.99,
+      "minWealth": 26900000,
+      "label": "Ultra High Net Worth"
+    },
+    {
+      "percentile": 99.9,
+      "minWealth": 5380000,
+      "label": "Very High Net Worth"
+    },
+    {
+      "percentile": 99.5,
+      "minWealth": 2690000,
+      "label": "High Net Worth"
+    },
+    {
+      "percentile": 99,
+      "minWealth": 1345000,
+      "label": "Millionaire"
+    },
+    {
+      "percentile": 95,
+      "minWealth": 538000
+    },
+    {
+      "percentile": 90,
+      "minWealth": 336250
+    },
+    {
+      "percentile": 80,
+      "minWealth": 201750
+    },
+    {
+      "percentile": 70,
+      "minWealth": 21240
+    },
+    {
+      "percentile": 60,
+      "minWealth": 14160
+    },
+    {
+      "percentile": 50,
+      "minWealth": 10620
+    },
+    {
+      "percentile": 40,
+      "minWealth": 7080
+    },
+    {
+      "percentile": 30,
+      "minWealth": 4956
+    },
+    {
+      "percentile": 20,
+      "minWealth": 2832
+    },
+    {
+      "percentile": 10,
+      "minWealth": 1416
+    },
+    {
+      "percentile": 5,
+      "minWealth": 708
+    },
+    {
+      "percentile": 1,
+      "minWealth": 110
+    }
+  ],
+  "regionalWealthData": {},
+  "countries": 243
+}

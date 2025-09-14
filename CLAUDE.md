@@ -1,5 +1,12 @@
 # CLAUDE.md - PayLens 프로젝트 컨텍스트
 
+## ⚠️ 핵심 개발 원칙
+### 데이터 정책 (매우 중요)
+1. **하드코딩은 UI 프로토타입 개발 시에만 사용**
+2. **실제 서비스는 반드시 실제 데이터 API 연동**
+3. **하드코딩 사용 시 반드시 Kelly에게 알릴 것**
+4. **목표: 실제 서비스 배포, 문서 작성이 아님**
+
 ## 프로젝트 개요
 PayLens는 한국과 미국의 연봉 퍼센타일을 분석하는 웹 애플리케이션입니다.
 - **핵심 기능**: 연봉 입력 → 즉시 상위 몇%인지 확인
@@ -75,6 +82,28 @@ git push origin main
 - ✅ Vercel 배포 완료
 - ✅ 모든 핵심 기능 구현
 - ⏸️ Google Analytics (추후 구현)
+
+## 📊 데이터 소스 현황
+
+### ✅ 실제 데이터 사용 중
+- **/analyze (연봉 분석)**: 국세청, US Census Bureau 공식 데이터
+  - 데이터 위치: `/data/korea-income.ts`, `/data/us-income.ts`
+  - 업데이트 주기: 연 1회
+
+### ⚠️ 하드코딩 (API 연동 필요)
+- **/wealth (세계 랭킹)**: `/data/global-wealth.ts` 하드코딩
+  - TODO: World Bank API 또는 OECD API 연동
+  - 필요 데이터: Credit Suisse Global Wealth Report
+
+- **/leaderboard (TOP 100)**: 목 데이터 사용
+  - TODO: Wikipedia API 또는 Forbes 스크래핑
+  - 필요 데이터: 실시간 억만장자 순위
+
+### 🔧 사용 가능한 무료 API
+1. World Bank API - 국가별 GNI, 자산 데이터
+2. OECD Data API - 글로벌 자산 분포
+3. Wikipedia API - 억만장자 목록
+4. Alpha Vantage - 주식 시세 (무료 티어)
 
 ## 담당자
 - **프로젝트 오너**: Kelly

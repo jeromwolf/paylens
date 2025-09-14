@@ -66,7 +66,19 @@ export default function Header() {
                 href="/analyze"
                 className="text-gray-600 hover:text-primary-600 transition-colors font-medium"
               >
-                {t('analyze')}
+                연봉 분석
+              </Link>
+              <Link
+                href="/wealth"
+                className="text-gray-600 hover:text-primary-600 transition-colors font-medium"
+              >
+                세계 랭킹
+              </Link>
+              <Link
+                href="/leaderboard"
+                className="text-gray-600 hover:text-primary-600 transition-colors font-medium"
+              >
+                TOP 50
               </Link>
             </nav>
 
@@ -75,7 +87,7 @@ export default function Header() {
               href="/analyze"
               className="px-4 py-2 bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-lg font-medium hover:shadow-lg transform transition-all hover:scale-105"
             >
-              {t('start')}
+              분석하기
             </Link>
           </div>
         </div>
