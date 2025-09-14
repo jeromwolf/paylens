@@ -78,20 +78,47 @@ export default function ShareImageGenerator({
         scale: 2,
         useCORS: true,
         width: 1200,
-        height: 630
+        height: 630,
+        logging: false
       });
 
-      canvas.toBlob(async (blob) => {
-        if (blob) {
-          await navigator.clipboard.write([
-            new ClipboardItem({ 'image/png': blob })
-          ]);
-          alert('이미지가 클립보드에 복사되었습니다!');
-        }
-      });
+      // Clipboard API 지원 확인
+      if (navigator.clipboard && window.ClipboardItem) {
+        canvas.toBlob(async (blob) => {
+          if (blob) {
+            try {
+              await navigator.clipboard.write([
+                new ClipboardItem({ 'image/png': blob })
+              ]);
+              alert('이미지가 클립보드에 복사되었습니다!');
+            } catch (clipError) {
+              console.error('클립보드 복사 실패:', clipError);
+              // 폴백: 이미지 다운로드
+              const dataUrl = canvas.toDataURL('image/png', 1.0);
+              const link = document.createElement('a');
+              link.download = `${filename}.png`;
+              link.href = dataUrl;
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+              alert('클립보드 복사가 지원되지 않아 이미지를 다운로드합니다.');
+            }
+          }
+        });
+      } else {
+        // Clipboard API를 지원하지 않는 브라우저
+        const dataUrl = canvas.toDataURL('image/png', 1.0);
+        const link = document.createElement('a');
+        link.download = `${filename}.png`;
+        link.href = dataUrl;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        alert('이 브라우저는 클립보드 복사를 지원하지 않습니다. 이미지가 다운로드되었습니다.');
+      }
     } catch (error) {
-      console.error('클립보드 복사 실패:', error);
-      await generateImage(); // 폴백으로 다운로드
+      console.error('이미지 생성 실패:', error);
+      alert('이미지 생성에 실패했습니다. 다시 시도해주세요.');
     }
   };
 

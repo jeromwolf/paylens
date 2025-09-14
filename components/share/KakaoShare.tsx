@@ -8,6 +8,7 @@ interface KakaoShareProps {
   description: string;
   imageUrl?: string;
   buttonText?: string;
+  buttonLink?: string;
   className?: string;
   income?: number;
   percentile?: number;
@@ -25,6 +26,7 @@ export default function KakaoShare({
   description,
   imageUrl,
   buttonText = '카카오톡 공유',
+  buttonLink,
   className = '',
   income,
   percentile,
@@ -61,8 +63,11 @@ export default function KakaoShare({
       const higherThan = (100 - percentile).toFixed(1);
       const salaryText = formatSalary(income, country);
 
-      shareTitle = `🎯 연봉 ${salaryText}은 상위 ${higherThan}%!`;
-      shareDescription = `PayLens에서 확인한 연봉 순위\\n${country === 'KR' ? '🇰🇷 한국' : '🇺🇸 미국'} 기준 상위 ${higherThan}%\\n지금 바로 당신의 연봉 순위도 확인해보세요!`;
+      shareTitle = `💰 연봉 ${salaryText}은 상위 ${higherThan}%!`;
+      shareDescription = `📊 PayLens 연봉 분석 결과\n\n` +
+        `${country === 'KR' ? '🇰🇷 한국' : '🇺🇸 미국'} 기준 상위 ${higherThan}%\n` +
+        `${higherThan <= 10 ? '🏆 상위 10% 달성!' : higherThan <= 30 ? '⭐ 중상위권 진입!' : '💪 평균 이상!'}\n\n` +
+        `지금 바로 당신의 연봉 순위도 확인해보세요!`;
     }
 
     try {
@@ -71,7 +76,7 @@ export default function KakaoShare({
         content: {
           title: shareTitle,
           description: shareDescription,
-          imageUrl: imageUrl || 'https://paylens-kappa.vercel.app/og-image.png',
+          imageUrl: imageUrl || 'https://paylens-kappa.vercel.app/api/og',
           link: {
             mobileWebUrl: window.location.href,
             webUrl: window.location.href,
@@ -79,10 +84,10 @@ export default function KakaoShare({
         },
         buttons: [
           {
-            title: '내 연봉 순위 확인하기',
+            title: buttonLink ? '내 자산 순위 확인하기' : '내 연봉 순위 확인하기',
             link: {
-              mobileWebUrl: 'https://paylens-kappa.vercel.app/analyze',
-              webUrl: 'https://paylens-kappa.vercel.app/analyze',
+              mobileWebUrl: buttonLink || 'https://paylens-kappa.vercel.app/analyze',
+              webUrl: buttonLink || 'https://paylens-kappa.vercel.app/analyze',
             },
           },
         ],

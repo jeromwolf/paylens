@@ -8,8 +8,7 @@ import WealthInput from '@/components/forms/WealthInput';
 import WealthPercentileDisplay from '@/components/charts/WealthPercentileDisplay';
 import WealthDistributionChart from '@/components/charts/WealthDistributionChart';
 import RegionalComparison from '@/components/charts/RegionalComparison';
-import ShareImageGenerator from '@/components/share/ShareImageGenerator';
-import WealthShareCard from '@/components/share/WealthShareCard';
+import KakaoShare from '@/components/share/KakaoShare';
 
 export default function WealthRankingPage() {
   const [mounted, setMounted] = useState(false);
@@ -247,16 +246,13 @@ export default function WealthRankingPage() {
                 나의 글로벌 자산 순위를 SNS에 자랑하고 친구들도 도전하게 해보세요
               </p>
 
-              <ShareImageGenerator
-                filename={`paylens-wealth-rank-${Date.now()}`}
-              >
-                <WealthShareCard
-                  percentile={percentile}
-                  wealth={wealth}
-                  currency={currency}
-                  exchangeRate={exchangeRate}
-                />
-              </ShareImageGenerator>
+              <div className="flex justify-center">
+                <KakaoShare
+                  title="PayLens 글로벌 자산 순위"
+                  description={`나의 자산은 전 세계 상위 ${(100 - (percentile || 50)).toFixed(1)}%!`}
+                  buttonText="카카오톡 공유"
+                  buttonLink="https://paylens-kappa.vercel.app/wealth"
+                /></div>
             </motion.div>
 
             {/* Info Box */}
