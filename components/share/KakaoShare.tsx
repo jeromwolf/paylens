@@ -76,7 +76,9 @@ export default function KakaoShare({
         content: {
           title: shareTitle,
           description: shareDescription,
-          imageUrl: imageUrl || 'https://paylens-kappa.vercel.app/api/og',
+          imageUrl: imageUrl || 'https://paylens-kappa.vercel.app/icon?size=512',
+          imageWidth: 300,
+          imageHeight: 300,
           link: {
             mobileWebUrl: window.location.href,
             webUrl: window.location.href,
